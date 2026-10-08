@@ -1,0 +1,22 @@
+{
+  "name": "tor-browser",
+  "version": "1.0.0",
+  "description": "Tor-compatible privacy browser with proxy controls and connection statistics",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron ."
+  },
+  "keywords": [
+    "browser",
+    "tor",
+    "proxy",
+    "privacy",
+    "electron"
+  ],
+  "author": "RacingJJ",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^30.0.0"
+  }
+}

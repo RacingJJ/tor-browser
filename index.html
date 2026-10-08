@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tor Browser</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <div class="brand-icon">T</div>
+          <div>
+            <div class="brand-label">Tor Browser</div>
+            <div class="brand-subtitle">Privacy Proxy Dashboard</div>
+          </div>
+        </div>
+
+        <section class="panel">
+          <div class="section-label">Connection</div>
+          <div class="status-row">
+            <span class="dot" id="statusDot"></span>
+            <span id="connectionStatus">Disconnected</span>
+          </div>
+
+          <div class="stat-grid">
+            <div>
+              <span class="mini-label">Latency</span>
+              <strong id="latencyValue">0 ms</strong>
+            </div>
+            <div>
+              <span class="mini-label">Relays</span>
+              <strong id="relayCount">0</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="section-label">Circuit</div>
+          <ul class="relay-list">
+            <li><span>Guard</span><strong id="guardValue">None</strong></li>
+            <li><span>Middle</span><strong id="middleValue">None</strong></li>
+            <li><span>Exit</span><strong id="exitValue">None</strong></li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <div class="section-label">Proxy</div>
+          <form id="proxyForm">
+            <label>
+              Type
+              <select id="proxyType">
+                <option value="socks5">SOCKS5</option>
+                <option value="http">HTTP</option>
+                <option value="socks4">SOCKS4</option>
+              </select>
+            </label>
+
+            <label>
+              Host
+              <input id="proxyHost" type="text" value="127.0.0.1" />
+            </label>
+
+            <label>
+              Port
+              <input id="proxyPort" type="number" value="9050" min="1" max="65535" />
+            </label>
+
+            <label>
+              Mode
+              <select id="proxyMode">
+                <option value="tor">Tor</option>
+                <option value="custom">Custom</option>
+              </select>
+            </label>
+
+            <label class="toggle-row">
+              <span>Enable proxy</span>
+              <input id="proxyEnabled" type="checkbox" />
+            </label>
+
+            <button type="submit" class="primary-btn">Apply Proxy</button>
+          </form>
+        </section>
+      </aside>
+
+      <main class="main-panel">
+        <header class="toolbar">
+          <div class="nav-buttons">
+            <button id="backButton" title="Back">←</button>
+            <button id="forwardButton" title="Forward">→</button>
+            <button id="refreshButton" title="Refresh">↻</button>
+            <button id="homeButton" title="Home">⌂</button>
+          </div>
+
+          <form id="addressForm" class="address-form">
+            <input id="addressBar" type="text" value="https://check.torproject.org/" />
+            <button type="submit">Go</button>
+          </form>
+        </header>
+
+        <div class="browser-wrap">
+          <webview id="browserView" src="https://check.torproject.org/"></webview>
+        </div>
+      </main>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
