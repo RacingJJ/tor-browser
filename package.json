@@ -12,13 +12,13 @@
   "build": {
     "appId": "com.racingjj.torbrowser",
     "productName": "Tor Browser",
+    "asar": false,
     "directories": {
       "output": "dist"
     },
     "win": {
       "target": "portable",
-      "artifactName": "TorBrowser-${version}-portable.exe",
-      "icon": "icon.ico"
+      "artifactName": "TorBrowser-${version}-portable.exe"
     }
   },
   "keywords": [
