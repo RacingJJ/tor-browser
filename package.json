@@ -5,7 +5,21 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dev": "electron ."
+    "dev": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win portable --x64"
+  },
+  "build": {
+    "appId": "com.racingjj.torbrowser",
+    "productName": "Tor Browser",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "portable",
+      "artifactName": "TorBrowser-${version}-portable.exe",
+      "icon": "icon.ico"
+    }
   },
   "keywords": [
     "browser",
@@ -17,6 +31,7 @@
   "author": "RacingJJ",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^30.0.0"
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.0"
   }
 }
